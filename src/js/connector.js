@@ -127,19 +127,16 @@ window.TrelloPowerUp.initialize({
         }		
     ];
   },
-	'attachment-sections': function(t, options){
-      return [{
-        id: 'ProjectSummary', // optional if you aren't using a function for the title
-        icon: GRAY_ICON, // Must be a gray icon, colored icons not allowed.
-        title: 'Project Summary',
-        content: {
-          type: 'iframe',
-          url: t.signUrl('../html/projectsummary.html', {
-            arg: 'you can pass your section args here'
-          }),
-          height: 230
-        }
-      }];
+  'card-back-section': function(t, options){
+    return {
+      title: 'Project Summary',
+      icon: GRAY_ICON, // Must be a gray icon, colored icons not allowed.
+      content: {
+        type: 'iframe',
+        url: t.signUrl('../html/projectsummary.html'),
+        height: 230 // Max height is 500
+      }
+    };	
 }
 });
 
