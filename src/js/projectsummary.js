@@ -9,6 +9,7 @@ t.render(function(){
   // from your section
   t.get('card')
   .then(function(card){
-    document.getElementById('project_summary_content').textContent = "CARD ID = "  + card.idShort;
+      console.log(card);
+    document.getElementById('project_summary_content').innerHTML  = "CARD ID = "  + card.idShort;
   });
 });
