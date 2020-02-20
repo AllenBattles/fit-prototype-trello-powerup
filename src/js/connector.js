@@ -106,37 +106,24 @@ window.TrelloPowerUp.initialize({
     return [
       {
       title: 'Total Comp',
-      text: ''
+      text: '$1,200,000.00'
       },
       {
         title: 'JTD',
-        text: ''
+        text: '$8,200,230.00'
       },
       {
         title: 'EAC',
-        text: ''
+        text: '$901,983.00'
       },
       {
         title: 'Baseline',
-        text: ''
+        text: '$192,291.00'
         },
 	      {
         title: '',
         text: '$1,2000.000'
-        }	
-		,
-			      {
-        title: '',
-        text: '$2,3000.000'
-        },
-			      {
-        title: '',
-        text: '$8000.000'
-        },
-			      {
-        title: '',
-        text: '$9000.000'
-        }	
+        }		
     ];
   }
 });
