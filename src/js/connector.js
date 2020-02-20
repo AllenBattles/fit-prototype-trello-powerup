@@ -5,6 +5,7 @@ import localizationSettings from './modules/localizationSettings';
 
 const { Promise } = window.TrelloPowerUp;
 const REFRESH_INTERVAL = 1800; // 30 minutes in seconds
+var GRAY_ICON = 'https://cdn.hyperdev.com/us-east-1%3A3d31b21c-01a0-4da2-8827-4bc6e88b7618%2Ficon-gray.svg';
 
 const showBadge = (command, type, prefs) => {
   if (command === 'card-badges') {
@@ -125,7 +126,21 @@ window.TrelloPowerUp.initialize({
         text: '$1,2000.000'
         }		
     ];
-  }
+  },
+	'attachment-sections': function(t, options){
+      return [{
+        id: 'ProjectSummary', // optional if you aren't using a function for the title
+        icon: GRAY_ICON, // Must be a gray icon, colored icons not allowed.
+        title: 'Project Summary',
+        content: {
+          type: 'iframe',
+          url: t.signUrl('./projectsummary.html', {
+            arg: 'you can pass your section args here'
+          }),
+          height: 230
+        }
+      }];
+}
 });
 
 
