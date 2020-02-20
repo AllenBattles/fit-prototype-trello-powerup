@@ -9,6 +9,9 @@ t.render(function(){
   t.card('all')
   .then(function (card) {
     console.log(JSON.stringify(card, null, 2));
+    if (card){
+        document.getElementById('project_summary_content').innerHTML  = "CARD NAME = "  + card.name;
+    }
   });
 
 //   t.getAll()
