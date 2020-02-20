@@ -133,7 +133,7 @@ window.TrelloPowerUp.initialize({
       icon: GRAY_ICON, // Must be a gray icon, colored icons not allowed.
       content: {
         type: 'iframe',
-        url: t.signUrl('./html/projectsummary.html'),
+        url: t.signUrl('projectsummary.html'),
         height: 230 // Max height is 500
       }
     };	
