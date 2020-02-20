@@ -134,7 +134,7 @@ window.TrelloPowerUp.initialize({
         title: 'Project Summary',
         content: {
           type: 'iframe',
-          url: t.signUrl('./projectsummary.html', {
+          url: t.signUrl('../html/projectsummary.html', {
             arg: 'you can pass your section args here'
           }),
           height: 230
