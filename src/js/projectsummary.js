@@ -6,9 +6,9 @@ t.render(function(){
   // recall this method as the user adds and removes attachments
   // from your section
 
-  t.get('card', 'shared')
-  .then(function (data) {
-    console.log(JSON.stringify(data, null, 2));
+  t.card('all')
+  .then(function (card) {
+    console.log(JSON.stringify(card, null, 2));
   });
 
 //   t.getAll()
