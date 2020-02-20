@@ -99,19 +99,47 @@ const getWeatherBadges = (t, opts) =>
     return badges;
   });
 
+
+
 window.TrelloPowerUp.initialize({
   'card-detail-badges': function(t, options){
     return [
       {
       title: 'Total Comp',
-      text: '$1,200.000.00'
+      text: ''
       },
       {
         title: 'JTD',
-        text: '$3,400.000.00'
-        }
+        text: ''
+      },
+      {
+        title: 'EAC',
+        text: ''
+      },
+      {
+        title: 'Baseline',
+        text: ''
+        },
+	      {
+        title: '',
+        text: '$1,2000.000'
+        }	
+		,
+			      {
+        title: '',
+        text: '$2,3000.000'
+        },
+			      {
+        title: '',
+        text: '$8000.000'
+        },
+			      {
+        title: '',
+        text: '$9000.000'
+        }	
     ];
   }
 });
+
 
 
