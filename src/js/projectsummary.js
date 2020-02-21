@@ -72,13 +72,14 @@ t.render(function () {
                 if (desc && desc.length > 0)
                     id = desc;
 
+                //get project number from custom field
                 if (card.customFieldItems && card.customFieldItems.length > 0) {
-                    var projNumber = filter(card.customFieldItems, function (x) {
-                        return x.idCustomField === "5e505e97806e533f28c5906a";
-                    });
-                    if (projNumber && projNumber.length > 0){
-                        if (projNumber[0].value){
-                            id = projNumber[0].value.text;
+                    for (var i = 0; i < card.customFieldItems.length; i++) {
+                        if (card.customFieldItems[i].idCustomField === "5e505e97806e533f28c5906a") {
+                            if (card.customFieldItems[i].value) {
+                                id = card.customFieldItems[i].value.text;
+                                break;
+                            }
                         }
                     }
                 }
