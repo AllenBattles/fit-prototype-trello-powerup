@@ -13,12 +13,20 @@ t.render(function(){
     if (card){
         document.getElementById('project_summary_content').innerHTML  = "CARD NAME = "  + card.name;
 
-        fetch(`${API_BASE}?id=217062.21.001`)
-        .then(response => {
-          if (response){
 
-          }
+        fetch(`${API_BASE}?id=217062.21.001`, {mode: 'no-cors'})
+        .then(function(response) {
+          console.log(response); 
+        }).catch(function(error) {  
+          console.log('Request failed', error)  
         });
+
+        // fetch(`${API_BASE}?id=217062.21.001`)
+        // .then(response => {
+        //   if (response){
+
+        //   }
+        // });
 
 
     }
