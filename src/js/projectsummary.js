@@ -66,10 +66,22 @@ t.render(function () {
         .then(function (card) {
             console.log(JSON.stringify(card, null, 2));
             if (card) {
-                var id = "217062.21.001";
+
+                var id = "NA";
                 var desc = card.desc;
                 if (desc && desc.length > 0)
                     id = desc;
+
+                if (card.customFieldItems && card.customFieldItems.length > 0) {
+                    var projNumber = filter(card.customFieldItems, function (x) {
+                        return x.idCustomField === "5e505e97806e533f28c5906a";
+                    });
+                    if (projNumber && projNumber.length > 0){
+                        if (projNumber[0].value){
+                            id = projNumber[0].value.text;
+                        }
+                    }
+                }
 
                 fetch(`${API_BASE}?id=${id}`)
                     .then(function (response) {
@@ -77,7 +89,7 @@ t.render(function () {
                     }).then(function (j) {
 
                         var data = JSON.stringify(j);
-                        if (j != null) {                            
+                        if (j != null) {
                             document.getElementById('TotalComp').innerHTML = formatCurrency(j.TotalComp);
 
                             document.getElementById('JTD_Total').innerHTML = formatCurrency(j.JTD_Total);
