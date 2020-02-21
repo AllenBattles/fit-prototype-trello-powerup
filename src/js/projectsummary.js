@@ -14,7 +14,7 @@ t.render(function(){
         document.getElementById('project_summary_content').innerHTML  = "CARD NAME = "  + card.name;
 
 
-        fetch(`${API_BASE}?id=217062.21.001`, {mode: 'no-cors'})
+        fetch(`${API_BASE}?id=217062.21.001`)
         .then(function(response) {
           console.log(response); 
         }).catch(function(error) {  
