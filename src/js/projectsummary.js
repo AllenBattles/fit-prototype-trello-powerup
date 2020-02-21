@@ -12,8 +12,12 @@ t.render(function(){
   .then(function (card) {
     console.log(JSON.stringify(card, null, 2));
     if (card){
-        
-        fetch(`${API_BASE}?id=217062.21.001`)
+        var id = "217062.21.001";
+        var desc = card.desc;
+        if (desc && desc.length > 0)
+            id = desc;
+
+        fetch(`${API_BASE}?id=${id}`)
         .then(function(response) {
             return response.json();
         }).then(function(j) {
