@@ -1,42 +1,142 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
 
-      <link rel="stylesheet" type="text/css" href="../css/projectsummary.css">
+    <link rel="stylesheet" type="text/css" href="../css/projectsummary.css">
 </head>
+
 <body>
 
-      <table class="table">
+    <table class="table">
         <thead>
             <tr>
                 <th>
                     Total Comp
                 </th>
-                <th>
-                    JTD
+                <th class="text-right">
+                    <span id="TotalComp"></span>
                 </th>
+            </tr>
+            <tr>
                 <th>
-                    EAC
+                    &nbsp;
                 </th>
-                <th>
+                <th class="text-right">
+                    JTD Actuals
+                </th>
+                <th class="text-right">
+                    EAC Plan
+                </th>
+                <th class="text-right">
                     Baseline
+                </th>
+                <th class="text-right">
+                    Variance
                 </th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <td>
-                    <span id="TotalComp"></span>
+                    Gross Rev
                 </td>
-                <td>
+                <td class="text-right">
                     <span id="JTD_Total"></span>
                 </td>
-                <td>
+                <td class="text-right">
                     <span id="EAC_Total"></span>
                 </td>
-                <td>
+                <td class="text-right">
                     <span id="Base_Total"></span>
+                </td>
+                <td class="text-right">
+                    <span id="GrossVar"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Net Rev
+                </td>
+                <td class="text-right">
+                    <span id="JTD_Net"></span>
+                </td>
+                <td class="text-right">
+                    <span id="EAC_Net"></span>
+                </td>
+                <td class="text-right">
+                    <span id="Base_Net"></span>
+                </td>
+                <td class="text-right">
+                    <span id="NetVar"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    GM $
+                </td>
+                <td class="text-right">
+                    <span id="JTD_GM"></span>
+                </td>
+                <td class="text-right">
+                    <span id="EAC_GM"></span>
+                </td>
+                <td class="text-right">
+                    <span id="Base_GM"></span>
+                </td>
+                <td class="text-right">
+                    <span id="GMVar"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    GM % on Net
+                </td>
+                <td class="text-right">
+                    <span id="JTD_GMPct"></span>
+                </td>
+                <td class="text-right">
+                    <span id="EAC_GMPct"></span>
+                </td>
+                <td class="text-right">
+                    <span id="Base_GMPct"></span>
+                </td>
+                <td class="text-right">
+                    <span id="GMPctVar"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Multiplier on Net
+                </td>
+                <td class="text-right">
+                    <span id="JTD_Mult"></span>
+                </td>
+                <td class="text-right">
+                    <span id="EAC_Mult"></span>
+                </td>
+                <td class="text-right">
+                    <span id="Base_Mult"></span>
+                </td>
+                <td class="text-right">
+                    <span id="MultVar"></span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <span id="Client"></span>
+                </td>
+                <td colspan="2">
+                    <span id="ClientManager"></span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <span id="Owner"></span>
+                </td>
+                <td colspan="2">
+                    <span id="OwnerManager"></span>
                 </td>
             </tr>
         </tbody>
@@ -45,8 +145,9 @@
     <div id="project_summary_content">
 
     </div>
-    
+
     <script src="https://p.trellocdn.com/power-up.min.js" crossorigin="anonymous"></script>
     <script src="../js/projectsummary.js"></script>
 </body>
+
 </html>
