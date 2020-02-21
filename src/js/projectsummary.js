@@ -12,14 +12,15 @@ t.render(function(){
   .then(function (card) {
     console.log(JSON.stringify(card, null, 2));
     if (card){
-        document.getElementById('project_summary_content').innerHTML  = "CARD NAME = "  + card.name;
-
-
+        
         fetch(`${API_BASE}?id=217062.21.001`)
         .then(function(response) {
             return response.json();
         }).then(function(j) {
-            console.log(j);
+            
+            var data = JSON.stringify(j);
+            document.getElementById('project_summary_content').innerHTML  = data;
+
         }).catch(function(error) {  
           console.log('Request failed', error)  
         });
