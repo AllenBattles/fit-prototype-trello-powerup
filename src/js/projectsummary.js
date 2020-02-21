@@ -24,6 +24,10 @@ t.render(function(){
             
             var data = JSON.stringify(j);
             document.getElementById('project_summary_content').innerHTML  = data;
+            document.getElementById('JTD_Total').innerHTML  = j.JTD_Total.toString();
+            document.getElementById('EAC_Total').innerHTML  = j.EAC_Total.toString();
+            document.getElementById('Base_Total').innerHTML  = j.Base_Total.toString();
+            document.getElementById('TotalComp').innerHTML  = j.TotalComp.toString();
 
         }).catch(function(error) {  
           console.log('Request failed', error)  
