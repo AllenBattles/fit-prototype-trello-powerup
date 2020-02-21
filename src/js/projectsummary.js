@@ -2,78 +2,135 @@
 var t = TrelloPowerUp.iframe();
 const API_BASE = 'https://glp2.csrsinc.com/api/dashboard/projectsummary';
 
+var formatCurrency = function (val) {
 
-t.render(function(){
-  // make sure your rendering logic lives here, since we will
-  // recall this method as the user adds and removes attachments
-  // from your section
+    var rtnVal = '';
 
-  t.card('all')
-  .then(function (card) {
-    console.log(JSON.stringify(card, null, 2));
-    if (card){
-        var id = "217062.21.001";
-        var desc = card.desc;
-        if (desc && desc.length > 0)
-            id = desc;
+    var pureVal = val;
+    if (pureVal < 0) {
+        pureVal = Math.abs(pureVal);
+    }
 
-        fetch(`${API_BASE}?id=${id}`)
-        .then(function(response) {
-            return response.json();
-        }).then(function(j) {
-            
-            var data = JSON.stringify(j);
-            if (j != null){
-                document.getElementById('project_summary_content').innerHTML  = data;
+    rtnVal = pureVal.toLocaleString('en-US', {
+        style: 'currency',
+        currency: 'USD',
+    });
 
-                document.getElementById('TotalComp').innerHTML  = j.TotalComp.toString();
+    if (val < 0) {
+        rtnVal = "(" + rtnVal + ")";
+    }
 
-                document.getElementById('JTD_Total').innerHTML  = j.JTD_Total.toString();                
-                document.getElementById('EAC_Total').innerHTML  = j.EAC_Total.toString();
-                document.getElementById('Base_Total').innerHTML  = j.Base_Total.toString();
-                document.getElementById('GrossVar').innerHTML  = j.GrossVar.toString();
-             
-                document.getElementById('JTD_Net').innerHTML  = j.JTD_Net.toString();
-                document.getElementById('EAC_Net').innerHTML  = j.EAC_Net.toString();
-                document.getElementById('Base_Net').innerHTML  = j.Base_Net.toString();
-                document.getElementById('NetVar').innerHTML  = j.NetVar.toString();
-                
-                document.getElementById('JTD_GM').innerHTML  = j.JTD_GM.toString();
-                document.getElementById('EAC_GM').innerHTML  = j.EAC_GM.toString();
-                document.getElementById('Base_GM').innerHTML  = j.Base_GM.toString();
-                document.getElementById('GMVar').innerHTML  = j.GMVar.toString();
+    return rtnVal;
+};
 
-                document.getElementById('JTD_GMPct').innerHTML  = j.JTD_GMPct.toString();
-                document.getElementById('EAC_GMPct').innerHTML  = j.EAC_GMPct.toString();
-                document.getElementById('Base_GMPct').innerHTML  = j.Base_GMPct.toString();
-                document.getElementById('GMPctVar').innerHTML  = j.GMPctVar.toString();
+var formatPercent = function (val, useNegativeSign) {
 
-                document.getElementById('JTD_Mult').innerHTML  = j.JTD_Mult.toString();
-                document.getElementById('EAC_Mult').innerHTML  = j.EAC_Mult.toString();
-                document.getElementById('Base_Mult').innerHTML  = j.Base_Mult.toString();
-                document.getElementById('MultVar').innerHTML  = j.MultVar.toString();            
+    var rtnVal = '';
+
+    var pureVal = val / 100.0000;
+    if (pureVal < 0) {
+        pureVal = Math.abs(pureVal);
+    }
+
+    rtnVal = pureVal.toLocaleString('en-US', {
+        style: 'percent',
+        currency: 'USD',
+    });
+
+    if (val < 0) {
+        if (useNegativeSign) {
+            rtnVal = "-" + rtnVal;
+        } else {
+            rtnVal = "(" + rtnVal + ")";
+        }
+    }
+
+    return rtnVal;
+
+};
+
+var formatDecimal = function (val) {
+    return val.toLocaleString('en-US', {
+        style: 'decimal',
+        minimumFractionDigits: 2,
+        currency: 'USD',
+    });
+};
+
+t.render(function () {
+    // make sure your rendering logic lives here, since we will
+    // recall this method as the user adds and removes attachments
+    // from your section
+
+    t.card('all')
+        .then(function (card) {
+            console.log(JSON.stringify(card, null, 2));
+            if (card) {
+                var id = "217062.21.001";
+                var desc = card.desc;
+                if (desc && desc.length > 0)
+                    id = desc;
+
+                fetch(`${API_BASE}?id=${id}`)
+                    .then(function (response) {
+                        return response.json();
+                    }).then(function (j) {
+
+                        var data = JSON.stringify(j);
+                        if (j != null) {                            
+                            document.getElementById('TotalComp').innerHTML = formatCurrency(j.TotalComp);
+
+                            document.getElementById('JTD_Total').innerHTML = formatCurrency(j.JTD_Total);
+                            document.getElementById('EAC_Total').innerHTML = formatCurrency(j.EAC_Total);
+                            document.getElementById('Base_Total').innerHTML = formatCurrency(j.Base_Total);
+                            document.getElementById('GrossVar').innerHTML = formatCurrency(j.GrossVar);
+
+                            document.getElementById('JTD_Net').innerHTML = formatCurrency(j.JTD_Net);
+                            document.getElementById('EAC_Net').innerHTML = formatCurrency(j.EAC_Net);
+                            document.getElementById('Base_Net').innerHTML = formatCurrency(j.Base_Net);
+                            document.getElementById('NetVar').innerHTML = formatCurrency(j.NetVar);
+
+                            document.getElementById('JTD_GM').innerHTML = formatCurrency(j.JTD_GM);
+                            document.getElementById('EAC_GM').innerHTML = formatCurrency(j.EAC_GM);
+                            document.getElementById('Base_GM').innerHTML = formatCurrency(j.Base_GM);
+                            document.getElementById('GMVar').innerHTML = formatCurrency(j.GMVar);
+
+                            document.getElementById('JTD_GMPct').innerHTML = formatPercent(j.JTD_GMPct, false);
+                            document.getElementById('EAC_GMPct').innerHTML = formatPercent(j.EAC_GMPct, false);
+                            document.getElementById('Base_GMPct').innerHTML = formatPercent(j.Base_GMPct, false);
+                            document.getElementById('GMPctVar').innerHTML = formatPercent(j.GMPctVar, false);
+
+                            document.getElementById('JTD_Mult').innerHTML = formatDecimal(j.JTD_Mult);
+                            document.getElementById('EAC_Mult').innerHTML = formatDecimal(j.EAC_Mult);
+                            document.getElementById('Base_Mult').innerHTML = formatDecimal(j.Base_Mult);
+                            document.getElementById('MultVar').innerHTML = formatDecimal(j.MultVar);
+
+                            document.getElementById('Client').innerHTML = "Client: " + j.Client;
+                            document.getElementById('ProjectManager').innerHTML = "Client Manager: " + j.ProjectManager;
+
+                            document.getElementById('Owner').innerHTML = "Owner: " + j.Owner;
+                            document.getElementById('OwnerManager').innerHTML = "Owner Manager: " + j.OwnerManager;
+                        }
+
+
+                    }).catch(function (error) {
+                        console.log('Request failed', error)
+                    });
+
+                // fetch(`${API_BASE}?id=217062.21.001`)
+                // .then(response => {
+                //   if (response){
+
+                //   }
+                // });
+
 
             }
-
-
-        }).catch(function(error) {  
-          console.log('Request failed', error)  
         });
 
-        // fetch(`${API_BASE}?id=217062.21.001`)
-        // .then(response => {
-        //   if (response){
-
-        //   }
-        // });
-
-
-    }
-  });
-
-//   t.getAll()
-//   .then(function(card){
-//       console.log(card);
-//     document.getElementById('project_summary_content').innerHTML  = "CARD ID = "  + card.idShort;
-//   });
+    //   t.getAll()
+    //   .then(function(card){
+    //       console.log(card);
+    //     document.getElementById('project_summary_content').innerHTML  = "CARD ID = "  + card.idShort;
+    //   });
 });
