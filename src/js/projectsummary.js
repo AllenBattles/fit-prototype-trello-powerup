@@ -2,6 +2,13 @@
 var t = TrelloPowerUp.iframe();
 const API_BASE = 'https://glp2.csrsinc.com/api/dashboard/projectsummary';
 
+fetch(`${API_BASE}?id=217062.21.001`)
+.then(function(response) {
+  console.log(response); 
+}).catch(function(error) {  
+  console.log('Request failed', error)  
+});
+
 t.render(function(){
   // make sure your rendering logic lives here, since we will
   // recall this method as the user adds and removes attachments
