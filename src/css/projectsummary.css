@@ -27,9 +27,9 @@ table {
 
 table {
     display: table;
-    border-collapse: separate;
+    /* border-collapse: separate;
     border-spacing: 2px;
-    border-color: grey;
+    border-color: grey; */
 }
 
 thead {
@@ -66,7 +66,7 @@ tbody {
     border-color: inherit;
 }
 .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
-    padding: 8px;
+    /* padding: 8px; */
     line-height: 1.42857143;
     vertical-align: top;
 }
