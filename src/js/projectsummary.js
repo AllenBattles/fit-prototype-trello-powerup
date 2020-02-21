@@ -106,10 +106,10 @@ t.render(function () {
                             document.getElementById('MultVar').innerHTML = formatDecimal(j.MultVar);
 
                             document.getElementById('Client').innerHTML = "Client: " + j.Client;
-                            document.getElementById('ProjectManager').innerHTML = "Client Manager: " + j.ProjectManager;
+                            document.getElementById('ProjectManager').innerHTML = j.ProjectManager;
 
                             document.getElementById('Owner').innerHTML = "Owner: " + j.Owner;
-                            document.getElementById('OwnerManager').innerHTML = "Owner Manager: " + j.OwnerManager;
+                            document.getElementById('OwnerManager').innerHTML = j.OwnerManager;
                         }
 
 
