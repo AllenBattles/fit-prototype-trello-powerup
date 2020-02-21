@@ -10,8 +10,8 @@
       Content-Security-Policy = '''
       default-src 'self';
       connect-src 'self' https://p.trellocdn.com https://glp2.csrsinc.com;
-      script-src 'self' https://p.trellocdn.com;
-      style-src 'self' https://p.trellocdn.com;
+      script-src 'self' https://p.trellocdn.com https://glp2.csrsinc.com;
+      style-src 'self' https://p.trellocdn.com https://glp2.csrsinc.com;
       frame-ancestors https://trello.com;'''
 
   # enable CORS on one of our string files to enable testing
