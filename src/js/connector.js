@@ -103,30 +103,6 @@ const getWeatherBadges = (t, opts) =>
 
 
 window.TrelloPowerUp.initialize({
-  'card-detail-badges': function(t, options){
-    return [
-      {
-      title: 'Total Comp',
-      text: '$1,200,000.00'
-      },
-      {
-        title: 'JTD',
-        text: '$8,200,230.00'
-      },
-      {
-        title: 'EAC',
-        text: '$901,983.00'
-      },
-      {
-        title: 'Baseline',
-        text: '$192,291.00'
-        },
-	      {
-        title: '',
-        text: '$1,2000.000'
-        }		
-    ];
-  },
   'card-back-section': function(t, options){
     return {
       title: 'Project Summary',
