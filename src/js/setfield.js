@@ -1,6 +1,6 @@
 var t = TrelloPowerUp.iframe();
 
-window.estimate.addEventListener('submit', function (event) {
+window.setfield.addEventListener('submit', function (event) {
     // Stop the browser trying to submit the form itself.
     event.preventDefault();
     return t.set('card', 'shared', 'projectsummary', window.customFieldSel.value)
@@ -26,7 +26,7 @@ t.render(function () {
                         var option = document.createElement("option");
                         option.text = custFieldSel.text;
                         option.value = custFieldSel.id;
-                        x.add(option)
+                        custFieldSel.add(option)
                     }
                 }
             }
