@@ -3,7 +3,7 @@ var t = TrelloPowerUp.iframe();
 window.setfield.addEventListener('submit', function (event) {
     // Stop the browser trying to submit the form itself.
     event.preventDefault();
-    return t.set('card', 'shared', 'projectsummary', window.customFieldSel.value)
+    return t.set('board', 'shared', 'projectsummary', window.customFieldSel.value)
         .then(function () {
             t.closePopup();
         });
@@ -31,7 +31,7 @@ t.render(function () {
             }
 
         }).then(function () {
-            t.sizeTo('#customFieldSel').done();
+            t.sizeTo(document.body).done();
         });
 
 });
