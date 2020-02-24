@@ -22,10 +22,9 @@ t.render(function () {
                     var custFieldSel = document.getElementById("customFieldSel");
 
                     for (let i = 0; i < board.customFields.length; i++) {
-                        const custField = board.customFields[i];
                         var option = document.createElement("option");
-                        option.text = custFieldSel.text;
-                        option.value = custFieldSel.id;
+                        option.text = board.customFields[i].name;
+                        option.value = board.customFields[i].id;
                         custFieldSel.add(option)
                     }
                 }
