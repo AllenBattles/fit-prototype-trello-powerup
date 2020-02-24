@@ -62,9 +62,14 @@ t.render(function () {
     // recall this method as the user adds and removes attachments
     // from your section
 
+    var customFieldID = '5e3c29b01d0b6b0e7371e4e3';
+
     t.get('board', 'shared')
         .then(function (board) {
             console.log(JSON.stringify(board, null, 2));
+            if (board && board.projectsummary){
+                customFieldID = board.projectsummary;
+            }
 
             return t.card('all');
         }).then(function (card) {
@@ -79,7 +84,7 @@ t.render(function () {
                 //get project number from custom field
                 if (card.customFieldItems && card.customFieldItems.length > 0) {
                     for (var i = 0; i < card.customFieldItems.length; i++) {
-                        if (card.customFieldItems[i].idCustomField === "5e3c29b01d0b6b0e7371e4e3") {
+                        if (card.customFieldItems[i].idCustomField === customFieldID) {
                             if (card.customFieldItems[i].value) {
                                 id = card.customFieldItems[i].value.text;
                                 break;
