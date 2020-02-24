@@ -75,7 +75,7 @@ t.render(function () {
                 //get project number from custom field
                 if (card.customFieldItems && card.customFieldItems.length > 0) {
                     for (var i = 0; i < card.customFieldItems.length; i++) {
-                        if (card.customFieldItems[i].idCustomField === "5e505e97806e533f28c5906a") {
+                        if (card.customFieldItems[i].idCustomField === "5e3c29b01d0b6b0e7371e4e3") {
                             if (card.customFieldItems[i].value) {
                                 id = card.customFieldItems[i].value.text;
                                 break;
