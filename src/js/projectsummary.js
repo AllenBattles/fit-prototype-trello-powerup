@@ -62,18 +62,21 @@ t.render(function () {
     // recall this method as the user adds and removes attachments
     // from your section
 
-    var customFieldID = '5e3c29b01d0b6b0e7371e4e3';
+    var customFieldID = 'NA';
 
     t.get('board', 'shared')
         .then(function (board) {
-            console.log(JSON.stringify(board, null, 2));
+            //console.log(JSON.stringify(board, null, 2));
+
             if (board && board.projectsummary){
                 customFieldID = board.projectsummary;
             }
 
             return t.card('all');
         }).then(function (card) {
+
             //console.log(JSON.stringify(card, null, 2));
+            
             if (card) {
 
                 var id = "NA";
