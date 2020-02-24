@@ -62,7 +62,7 @@ t.render(function () {
     // recall this method as the user adds and removes attachments
     // from your section
 
-    t.all([t.get('board', 'shared'), card('all')])
+    t.all([t.get('board', 'shared'), t.card('all')])
     .then(([prefs, card]) => {
         //get custom value
         var customFieldID = "5e3c29b01d0b6b0e7371e4e3";
