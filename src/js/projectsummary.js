@@ -62,7 +62,7 @@ t.render(function () {
     // recall this method as the user adds and removes attachments
     // from your section
 
-    t.board('all')
+    t.get('board', 'shared')
         .then(function (board) {
             console.log(JSON.stringify(board, null, 2));
 
