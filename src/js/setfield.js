@@ -11,13 +11,15 @@ window.setfield.addEventListener('submit', function (event) {
 
 t.render(function () {
 
-    var permissions = t.getContext().permissions;
-    console.log(permissions);
+    t.organization('all')
+    .then(function (organization) {
+      console.log(JSON.stringify(organization, null, 2));
+    });
 
     t.board('id', 'customFields')
         .then(function (board) {
 
-            console.log(board);
+            //console.log(board);
 
             if (board) {
 
