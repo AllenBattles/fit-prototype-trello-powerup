@@ -11,14 +11,10 @@ window.setfield.addEventListener('submit', function (event) {
 
 t.render(function () {
 
-    t.member('all')
-    .then(function (member) {
-      console.log(JSON.stringify(member, null, 2));
-    });
-
     t.board('id', 'customFields')
         .then(function (board) {
 
+            console.log(t.memberCanWriteToModel('organization'));
             //console.log(board);
 
             if (board) {
