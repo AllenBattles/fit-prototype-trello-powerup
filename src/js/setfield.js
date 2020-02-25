@@ -11,7 +11,13 @@ window.setfield.addEventListener('submit', function (event) {
 
 t.render(function () {
 
-    t.board('id', 'customFields')
+    
+    var canUpdateOrg = t.memberCanWriteToModel('organization');
+    if (canUpdateOrg){
+
+        document.getElementById('no_permission').style.display = "none";
+
+        t.board('id', 'customFields')
         .then(function (board) {
 
              if (board) {
@@ -31,5 +37,9 @@ t.render(function () {
         }).then(function () {
             t.sizeTo(document.body).done();
         });
+    }
+    else{
+        document.getElementById('updateFields').style.display = "none";        
+    }
 
 });
