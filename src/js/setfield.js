@@ -11,6 +11,9 @@ window.setfield.addEventListener('submit', function (event) {
 
 t.render(function () {
 
+    var permissions = t.getContext().permissions;
+    console.log(permissions);
+
     t.board('id', 'customFields')
         .then(function (board) {
 
