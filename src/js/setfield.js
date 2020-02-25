@@ -11,9 +11,9 @@ window.setfield.addEventListener('submit', function (event) {
 
 t.render(function () {
 
-    t.organization('all')
-    .then(function (organization) {
-      console.log(JSON.stringify(organization, null, 2));
+    t.member('all')
+    .then(function (member) {
+      console.log(JSON.stringify(member, null, 2));
     });
 
     t.board('id', 'customFields')
