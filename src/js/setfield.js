@@ -14,10 +14,7 @@ t.render(function () {
     t.board('id', 'customFields')
         .then(function (board) {
 
-            console.log(t.memberCanWriteToModel('organization'));
-            //console.log(board);
-
-            if (board) {
+             if (board) {
 
                 if (board.customFields && board.customFields.length > 0) {
                     var custFieldSel = document.getElementById("customFieldSel");
