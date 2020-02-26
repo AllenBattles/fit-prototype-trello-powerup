@@ -85,7 +85,7 @@ t.render(function () {
             return t.card('all');
         }).then(function (card) {
 
-            //console.log(JSON.stringify(card, null, 2));
+            console.log(JSON.stringify(card, null, 2));
 
             if (card) {
 
