@@ -65,14 +65,16 @@ t.render(function () {
     var customFieldID = 'NA';
     var boardName = '';
 
-    t.get('board', 'name', 'shared')
+    t.get('board', 'all')
         .then(function (board) {
             //console.log(JSON.stringify(board, null, 2));
 
             if (board && board.projectsummary) {
                 customFieldID = board.projectsummary;
             }
-            boardName = board.name;
+            if (board){
+                boardName = board.name;
+            }            
 
             return t.card('all');
         }).then(function (card) {
