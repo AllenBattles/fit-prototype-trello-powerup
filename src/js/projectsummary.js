@@ -65,7 +65,7 @@ t.render(function () {
     var customFieldID = 'NA';
     var boardName = '';
 
-    t.get('board', 'shared')
+    t.get('board', 'name', 'shared')
         .then(function (board) {
             //console.log(JSON.stringify(board, null, 2));
 
