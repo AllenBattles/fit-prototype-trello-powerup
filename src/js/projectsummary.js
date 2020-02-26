@@ -106,10 +106,14 @@ t.render(function () {
                     }
                 }
 
+                console.log("boardName = " + boardName);
+
                 let apiUrl = `${API_BASE}?id=${id}`;
                 if (boardName && boardName.toLowerCase().indexOf('test') >= 0) {
                     apiUrl = 'https://glp2.csrsinc.com/api/dashboard/projectsummary?id=' + id;
                 }
+
+                console.log("apiUrl = " + apiUrl);
 
                 fetch(apiUrl)
                     .then(function (response) {
