@@ -85,7 +85,7 @@ t.render(function () {
             return t.card('all');
         }).then(function (card) {
 
-            console.log(JSON.stringify(card, null, 2));
+            //console.log(JSON.stringify(card, null, 2));
 
             if (card) {
 
@@ -106,14 +106,14 @@ t.render(function () {
                     }
                 }
 
-                console.log("boardName = " + boardName);
+                //console.log("boardName = " + boardName);
 
                 let apiUrl = `${API_BASE}?id=${id}`;
                 if (boardName && boardName.toLowerCase().indexOf('test') >= 0) {
                     apiUrl = 'https://glp2.csrsinc.com/api/dashboard/projectsummary?id=' + id;
                 }
 
-                console.log("apiUrl = " + apiUrl);
+                //console.log("apiUrl = " + apiUrl);
 
                 fetch(apiUrl)
                     .then(function (response) {
