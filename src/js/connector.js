@@ -105,7 +105,7 @@ const getWeatherBadges = (t, opts) =>
 window.TrelloPowerUp.initialize({
   'board-buttons': function(t, options){
     return [{
-      icon: 'https://cdn.glitch.com/1b42d7fe-bda8-4af8-a6c8-eff0cea9e08a%2Frocket-ship.png?1494946700421',
+      icon: 'https://5e55da0b1af9bf0007de2069--sleepy-wilson-657e83.netlify.com/fiticon.png',
       text: 'Project Summary',
       callback: function(t){
   
