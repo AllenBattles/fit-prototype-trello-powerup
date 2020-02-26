@@ -8,173 +8,165 @@
 </head>
 
 <body>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th colspan="3">
-                    Total Comp
-                </th>
-                <th colspan="2" class="text-right">
-                    <span id="TotalComp"></span>
-                </th>
-            </tr>
-            <tr>
-                <th>
-                    &nbsp;
-                </th>
-                <th class="text-right">
-                    JTD Actuals
-                </th>
-                <th class="text-right">
-                    EAC Plan
-                </th>
-                <th class="text-right">
-                    Baseline
-                </th>
-                <th class="text-right">
-                    Variance
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>
-                    Gross Rev
-                </td>
-                <td class="text-right">
-                    <span id="JTD_Total"></span>
-                </td>
-                <td class="text-right">
-                    <span id="EAC_Total"></span>
-                </td>
-                <td class="text-right">
-                    <span id="Base_Total"></span>
-                </td>
-                <td class="text-right">
-                    <span id="GrossVar"></span>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Net Rev
-                </td>
-                <td class="text-right">
-                    <span id="JTD_Net"></span>
-                </td>
-                <td class="text-right">
-                    <span id="EAC_Net"></span>
-                </td>
-                <td class="text-right">
-                    <span id="Base_Net"></span>
-                </td>
-                <td class="text-right">
-                    <span id="NetVar"></span>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    GM $
-                </td>
-                <td class="text-right">
-                    <span id="JTD_GM"></span>
-                </td>
-                <td class="text-right">
-                    <span id="EAC_GM"></span>
-                </td>
-                <td class="text-right">
-                    <span id="Base_GM"></span>
-                </td>
-                <td class="text-right">
-                    <span id="GMVar"></span>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    GM % on Net
-                </td>
-                <td class="text-right">
-                    <span id="JTD_GMPct"></span>
-                </td>
-                <td class="text-right">
-                    <span id="EAC_GMPct"></span>
-                </td>
-                <td class="text-right">
-                    <span id="Base_GMPct"></span>
-                </td>
-                <td class="text-right">
-                    <span id="GMPctVar"></span>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Multiplier on Net
-                </td>
-                <td class="text-right">
-                    <span id="JTD_Mult"></span>
-                </td>
-                <td class="text-right">
-                    <span id="EAC_Mult"></span>
-                </td>
-                <td class="text-right">
-                    <span id="Base_Mult"></span>
-                </td>
-                <td class="text-right">
-                    <span id="MultVar"></span>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="5">
-                    &nbsp;
-                </td>
-            </tr>
-            <tr class="border-top border-bottom">
-                <td colspan="4">
-                    <span id="Client"></span>
-                </td>
-                <td colspan="1">
-                    <span id="ProjectManager"></span>
-                </td>
-            </tr>
-            <tr class="border-bottom">
-                <td colspan="4">
-                    <span id="Owner"></span>
-                </td>
-                <td colspan="1">
-                    <span id="OwnerManager"></span>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="5">
-                    &nbsp;
-                </td>
-            </tr>
-            <tr class="border-top border-bottom">
-                <td colspan="3">
-                    <span id="TotalAR"></span>
-                </td>
-                <td colspan="2">
-                    <span id="ARPlus60"></span>
-                </td>
-            </tr>
-            <tr class="border-top border-bottom">
-                <td colspan="3">
-                    <span id="DraftAmount"></span>
-                </td>
-                <td colspan="2">
-                    <span id="InvoiceStatus"></span>
-                </td>
-            </tr>
-            <tr class="border-bottom">
-                <td colspan="5">
-                    <span id="Status"></span>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-
-    <div id="project_summary_content">
-
+    <div class="table-container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th colspan="3">
+                        <span id="Status"></span>
+                    </th>
+                    <th colspan="2" class="text-right">
+                        <span id="TotalComp"></span>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        &nbsp;
+                    </th>
+                    <th class="text-right">
+                        JTD Actuals
+                    </th>
+                    <th class="text-right">
+                        EAC Plan
+                    </th>
+                    <th class="text-right">
+                        Baseline
+                    </th>
+                    <th class="text-right">
+                        Variance
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        Gross Rev
+                    </td>
+                    <td class="text-right">
+                        <span id="JTD_Total"></span>
+                    </td>
+                    <td class="text-right">
+                        <span id="EAC_Total"></span>
+                    </td>
+                    <td class="text-right">
+                        <span id="Base_Total"></span>
+                    </td>
+                    <td class="text-right">
+                        <span id="GrossVar"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Net Rev
+                    </td>
+                    <td class="text-right">
+                        <span id="JTD_Net"></span>
+                    </td>
+                    <td class="text-right">
+                        <span id="EAC_Net"></span>
+                    </td>
+                    <td class="text-right">
+                        <span id="Base_Net"></span>
+                    </td>
+                    <td class="text-right">
+                        <span id="NetVar"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        GM $
+                    </td>
+                    <td class="text-right">
+                        <span id="JTD_GM"></span>
+                    </td>
+                    <td class="text-right">
+                        <span id="EAC_GM"></span>
+                    </td>
+                    <td class="text-right">
+                        <span id="Base_GM"></span>
+                    </td>
+                    <td class="text-right">
+                        <span id="GMVar"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        GM % on Net
+                    </td>
+                    <td class="text-right">
+                        <span id="JTD_GMPct"></span>
+                    </td>
+                    <td class="text-right">
+                        <span id="EAC_GMPct"></span>
+                    </td>
+                    <td class="text-right">
+                        <span id="Base_GMPct"></span>
+                    </td>
+                    <td class="text-right">
+                        <span id="GMPctVar"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Multiplier on Net
+                    </td>
+                    <td class="text-right">
+                        <span id="JTD_Mult"></span>
+                    </td>
+                    <td class="text-right">
+                        <span id="EAC_Mult"></span>
+                    </td>
+                    <td class="text-right">
+                        <span id="Base_Mult"></span>
+                    </td>
+                    <td class="text-right">
+                        <span id="MultVar"></span>
+                    </td>
+                </tr>
+                <tr class="blank-row">
+                    <td colspan="5">
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr class="border-top">
+                    <td colspan="4">
+                        <span id="Client"></span>
+                    </td>
+                    <td colspan="1">
+                        <span id="ProjectManager"></span>
+                    </td>
+                </tr>
+                <tr class="">
+                    <td colspan="4">
+                        <span id="Owner"></span>
+                    </td>
+                    <td colspan="1">
+                        <span id="OwnerManager"></span>
+                    </td>
+                </tr>
+                <tr class="blank-row">
+                    <td colspan="5">
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr class="border-top>
+                    <td colspan="3">
+                        <span id="TotalAR"></span>
+                    </td>
+                    <td colspan="2" class="text-right">
+                        <span id="ARPlus60"></span>
+                    </td>
+                </tr>
+                <tr class="">
+                    <td colspan="3">
+                        <span id="DraftAmount"></span>
+                    </td>
+                    <td colspan="2" class="text-right">
+                        <span id="InvoiceStatus"></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
     <script src="https://p.trellocdn.com/power-up.min.js" crossorigin="anonymous"></script>

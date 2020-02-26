@@ -125,7 +125,7 @@ t.render(function () {
                         if (j != null) {
 
                             try {
-                                document.getElementById('TotalComp').innerHTML = formatCurrency(j.TotalComp);
+                                document.getElementById('TotalComp').innerHTML = "Total Comp: " + formatCurrency(j.TotalComp);
 
                                 document.getElementById('JTD_Total').innerHTML = formatCurrency(j.JTD_Total);
                                 document.getElementById('EAC_Total').innerHTML = formatCurrency(j.EAC_Total);

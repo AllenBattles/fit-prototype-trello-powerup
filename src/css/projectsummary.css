@@ -3,6 +3,17 @@
     text-align: right;
 }
 
+.table-container {
+    border: 1px solid #ddd;
+    padding: 4px 4px 4px 4px;
+    width: 100%;
+    height: 100%;
+}
+
+.blank-row {
+    line-height: 0.75 !important;
+}
+
 .border-bottom {
     border-bottom: 1px solid #ddd;
 }
