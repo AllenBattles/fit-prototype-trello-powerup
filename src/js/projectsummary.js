@@ -65,6 +65,7 @@ t.render(function () {
 
     var customFieldID = 'NA';
     var boardName = '';
+    var isTestBoard = false;
 
     t.get('board', 'shared')
         .then(function (board) {
@@ -110,6 +111,7 @@ t.render(function () {
 
                 let apiUrl = `${API_BASE}?id=${id}`;
                 if (boardName && boardName.toLowerCase().indexOf('test') >= 0) {
+                    isTestBoard = true;
                     apiUrl = 'https://glp2.csrsinc.com/api/dashboard/projectsummary?id=' + id;
                 }
 
@@ -155,6 +157,18 @@ t.render(function () {
 
                                 document.getElementById('Owner').innerHTML = "Owner: " + j.Owner;
                                 document.getElementById('OwnerManager').innerHTML = j.OwnerManager;
+
+                                if (isTestBoard){
+                                    document.getElementById('TotalAR').innerHTML = "AR: " + formatCurrency(j.TotalAR);
+                                    document.getElementById('ARPlus60').innerHTML = "AR > 60: " + formatCurrency(j.ARPlus60);
+    
+                                    document.getElementById('DraftAmount').innerHTML = "Draft Invoice Amount: " + formatCurrency(j.DraftAmount);
+                                    document.getElementById('InvoiceStatus').innerHTML = "Invoice Status: " + j.InvoiceStatus;
+    
+                                    document.getElementById('Status').innerHTML = "Project Status: " + j.Status;
+                                }
+
+
                             } catch (err) {
                                 console.log('Binding HTML Failed', err);
                             }
