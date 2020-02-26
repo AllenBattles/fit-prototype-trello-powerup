@@ -1,7 +1,7 @@
 //var t = window.TrelloPowerUp.iframe();
 var t = TrelloPowerUp.iframe();
-//const API_BASE = 'https://fwittrello.csrsinc.com/api/dashboard/projectsummary';
-const API_BASE = 'https://glp2.csrsinc.com/api/dashboard/projectsummary';
+const API_BASE = 'https://fwittrello.csrsinc.com/api/dashboard/projectsummary';
+//const API_BASE = 'https://glp2.csrsinc.com/api/dashboard/projectsummary';
 
 var formatCurrency = function (val) {
 
@@ -73,9 +73,14 @@ t.render(function () {
             if (board && board.projectsummary) {
                 customFieldID = board.projectsummary;
             }
-            // if (board){
-            //     boardName = board.name;
-            // }            
+
+            return t.board('id', 'name');
+
+        }).then(function (brd) {
+
+            if (brd) {
+                boardname = brd.name;
+            }
 
             return t.card('all');
         }).then(function (card) {
@@ -102,9 +107,9 @@ t.render(function () {
                 }
 
                 let apiUrl = `${API_BASE}?id=${id}`;
-                // if (boardName && boardName.toLowerCase().indexOf('test') >= 0) {
-                //     apiUrl = 'https://glp2.csrsinc.com/api/dashboard/projectsummary?id=' + id;
-                // }
+                if (boardName && boardName.toLowerCase().indexOf('test') >= 0) {
+                    apiUrl = 'https://glp2.csrsinc.com/api/dashboard/projectsummary?id=' + id;
+                }
 
                 fetch(apiUrl)
                     .then(function (response) {
