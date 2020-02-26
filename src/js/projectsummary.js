@@ -79,7 +79,7 @@ t.render(function () {
         }).then(function (brd) {
 
             if (brd) {
-                boardname = brd.name;
+                boardName = brd.name;
             }
 
             return t.card('all');
