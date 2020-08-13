@@ -165,6 +165,7 @@ t.render(function () {
                                 document.getElementById('InvoiceStatus').innerHTML = "Invoice Status: " + j.InvoiceStatus;
 
                                 document.getElementById('Status').innerHTML = "Project Status: " + j.Status;
+                                document.getElementById('ITR').innerHTML = "ITR: " + j.ITR;
 
 
                             } catch (err) {
