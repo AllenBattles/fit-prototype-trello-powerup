@@ -166,6 +166,10 @@ t.render(function () {
 
                                 document.getElementById('Status').innerHTML = "Project Status: " + j.Status;
                                 document.getElementById('ITR').innerHTML = "ITR: " + j.ITR;
+                                document.getElementById('LeadEngineer').innerHTML = "Lead Engineer: " + j.LeadEngineer;
+                                document.getElementById('StartDate').innerHTML = "Start Date: " + j.StartDate;
+                                document.getElementById('ActCompDate').innerHTML = "Actual Completion Date: " + j.ActCompDate;
+                                document.getElementById('EstCompDate').innerHTML = "Est Completion Date: " + j.EstCompDate;
 
 
                             } catch (err) {
