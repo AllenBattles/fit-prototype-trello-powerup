@@ -34,7 +34,7 @@ var formatDate = function(val) {
         console.log(val);
 
     if (val && val.length > 0){
-        rtnValue = new Date(val).toLocaleDateString();
+        rtnValue = new Date(val.toString()).toLocaleDateString();
     }
 
     return rtnVal;
@@ -63,6 +63,8 @@ var formatPercent = function (val, useNegativeSign) {
             rtnVal = "(" + rtnVal + ")";
         }
     }
+
+    console.log('percentage...' + rtnVal);
 
     return rtnVal;
 
