@@ -29,7 +29,10 @@ var formatCurrency = function (val) {
 var formatDate = function(val) {
 
     var rtnVal = '';
-    console.log(value);
+    
+    if (val)
+        console.log(val);
+
     if (val && val.length > 0){
         rtnValue = new Date(val).toLocaleDateString();
     }
