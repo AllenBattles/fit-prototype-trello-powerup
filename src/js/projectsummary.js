@@ -31,7 +31,8 @@ var formatDate = function(val) {
     var rtnVal = '';
 
     if (val){
-        rtnValue = new Date(val.toString()).toLocaleDateString();        
+        const d = new Date(val);
+        rtnValue = d.toLocaleDateString();        
         console.log(rtnVal);
     }
 
@@ -154,7 +155,7 @@ t.render(function () {
                                 document.getElementById('baseline_gross').innerHTML = formatCurrency(j.BaselineGross);
                                 document.getElementById('jtd_gross').innerHTML = formatCurrency(j.JTDGross);
                                 document.getElementById('effort_enddate').innerHTML = formatDate(j.BaselineEndDate);
-                                document.getElementById('effort_enddate').innerHTML = j.BaselineEndDate;
+                                //document.getElementById('effort_enddate').innerHTML = j.BaselineEndDate;
                                 
                                 document.getElementById('baseline_net').innerHTML = formatCurrency(j.BaselineNet);
                                 document.getElementById('jtd_net').innerHTML = formatCurrency(j.JTDNet);
