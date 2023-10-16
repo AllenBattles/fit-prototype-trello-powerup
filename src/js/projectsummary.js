@@ -26,13 +26,13 @@ var formatCurrency = function (val) {
     return rtnVal;
 };
 
-var formatDate = function(val) {
+var formatDateToShortDate = function(val) {
 
     var rtnVal = '';
 
-    if (val){
-        const d = new Date(val);
-        rtnValue = d.toLocaleDateString();        
+    if (val != null){
+        var d = new Date(val);
+        rtnVal = d.toLocaleDateString();        
         console.log(rtnVal);
     }
 
@@ -154,7 +154,7 @@ t.render(function () {
 
                                 document.getElementById('baseline_gross').innerHTML = formatCurrency(j.BaselineGross);
                                 document.getElementById('jtd_gross').innerHTML = formatCurrency(j.JTDGross);
-                                document.getElementById('effort_enddate').innerHTML = formatDate(j.BaselineEndDate);
+                                document.getElementById('effort_enddate').innerHTML = formatDateToShortDate(j.BaselineEndDate);
                                 //document.getElementById('effort_enddate').innerHTML = j.BaselineEndDate;
                                 
                                 document.getElementById('baseline_net').innerHTML = formatCurrency(j.BaselineNet);
