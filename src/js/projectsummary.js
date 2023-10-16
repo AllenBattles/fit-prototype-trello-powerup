@@ -1,6 +1,6 @@
 //var t = window.TrelloPowerUp.iframe();
 var t = TrelloPowerUp.iframe();
-const API_BASE = 'https://fwittrello.csrsinc.com/api/dashboard/projectsummary';
+const API_BASE = 'https://fwittrello.csrsinc.com/api/dashboard/modernprojectsummary';
 //const API_BASE = 'https://glp2.csrsinc.com/api/dashboard/projectsummary';
 
 var formatCurrency = function (val) {
@@ -15,10 +15,23 @@ var formatCurrency = function (val) {
     rtnVal = pureVal.toLocaleString('en-US', {
         style: 'currency',
         currency: 'USD',
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0        
     });
 
     if (val < 0) {
         rtnVal = "(" + rtnVal + ")";
+    }
+
+    return rtnVal;
+};
+
+var formatDate = function(val) {
+
+    var rtnVal = '';
+
+    if (val && val.length > 0){
+        rtnValue = new Date(val).toLocaleDateString();
     }
 
     return rtnVal;
@@ -54,6 +67,14 @@ var formatDecimal = function (val) {
     return val.toLocaleString('en-US', {
         style: 'decimal',
         minimumFractionDigits: 2,
+        currency: 'USD',
+    });
+};
+var formatDecimalNoPoints = function (val) {
+    return val.toLocaleString('en-US', {
+        style: 'decimal',
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0,
         currency: 'USD',
     });
 };
@@ -112,7 +133,7 @@ t.render(function () {
                 let apiUrl = `${API_BASE}?id=${id}`;
                 if (boardName && boardName.toLowerCase().indexOf('test') >= 0) {
                     isTestBoard = true;
-                    apiUrl = 'https://glp2.csrsinc.com/api/dashboard/projectsummary?id=' + id;
+                    apiUrl = 'https://glp2.csrsinc.com/api/dashboard/modernprojectsummary?id=' + id;
                 }
 
                 //console.log("apiUrl = " + apiUrl);
@@ -125,51 +146,47 @@ t.render(function () {
                         if (j != null) {
 
                             try {
-                                document.getElementById('TotalComp').innerHTML = "Total Comp: " + formatCurrency(j.TotalComp);
+                                document.getElementById('TotalComp').innerHTML = "Total Comp: " + formatCurrency(j.BaselineGross);
 
-                                document.getElementById('JTD_Total').innerHTML = formatCurrency(j.JTD_Total);
-                                document.getElementById('EAC_Total').innerHTML = formatCurrency(j.EAC_Total);
-                                document.getElementById('Base_Total').innerHTML = formatCurrency(j.Base_Total);
-                                document.getElementById('GrossVar').innerHTML = formatCurrency(j.GrossVar);
+                                document.getElementById('baseline_gross').innerHTML = formatCurrency(j.BaselineGross);
+                                document.getElementById('jtd_gross').innerHTML = formatCurrency(j.JTDGross);
+                                document.getElementById('effort_enddate').innerHTML = formatDate(j.BaselineEndDate);
+                                
+                                document.getElementById('baseline_net').innerHTML = formatCurrency(j.BaselineNet);
+                                document.getElementById('jtd_net').innerHTML = formatCurrency(j.JTDNet);
+                                document.getElementById('effort_remaining').innerHTML = formatCurrency(j.EffortUnassigned);
 
-                                document.getElementById('JTD_Net').innerHTML = formatCurrency(j.JTD_Net);
-                                document.getElementById('EAC_Net').innerHTML = formatCurrency(j.EAC_Net);
-                                document.getElementById('Base_Net').innerHTML = formatCurrency(j.Base_Net);
-                                document.getElementById('NetVar').innerHTML = formatCurrency(j.NetVar);
+                                document.getElementById('baseline_gm').innerHTML = ''; //formatCurrency(j.BaselineGross);
+                                document.getElementById('jtd_gm').innerHTML = ''; //formatCurrency(j.EAC_GM);
+                                document.getElementById('effort_excess').innerHTML = formatDecimalNoPoints(j.EffortExcess);                                
 
-                                document.getElementById('JTD_GM').innerHTML = formatCurrency(j.JTD_GM);
-                                document.getElementById('EAC_GM').innerHTML = formatCurrency(j.EAC_GM);
-                                document.getElementById('Base_GM').innerHTML = formatCurrency(j.Base_GM);
-                                document.getElementById('GMVar').innerHTML = formatCurrency(j.GMVar);
+                                document.getElementById('baseline_gmpct').innerHTML = formatPercent(j.BaselineGM, false);
+                                document.getElementById('jtd_gmpct').innerHTML = formatPercent(j.JTDGM, false);
+                                document.getElementById('effort_gmpct').innerHTML = formatPercent(j.EffortGM, false);
+                                //document.getElementById('GMPctVar').innerHTML = formatPercent(j.GMPctVar, false);
 
-                                document.getElementById('JTD_GMPct').innerHTML = formatPercent(j.JTD_GMPct, false);
-                                document.getElementById('EAC_GMPct').innerHTML = formatPercent(j.EAC_GMPct, false);
-                                document.getElementById('Base_GMPct').innerHTML = formatPercent(j.Base_GMPct, false);
-                                document.getElementById('GMPctVar').innerHTML = formatPercent(j.GMPctVar, false);
+                                document.getElementById('baseline_gmpct').innerHTML = formatDecimal(j.BaselineGM);
+                                document.getElementById('jtd_gmpct').innerHTML = formatDecimal(j.JTDGM);
+                                document.getElementById('effort_gmpct').innerHTML = formatDecimal(j.EffortGM);                                
 
-                                document.getElementById('JTD_Mult').innerHTML = formatDecimal(j.JTD_Mult);
-                                document.getElementById('EAC_Mult').innerHTML = formatDecimal(j.EAC_Mult);
-                                document.getElementById('Base_Mult').innerHTML = formatDecimal(j.Base_Mult);
-                                document.getElementById('MultVar').innerHTML = formatDecimal(j.MultVar);
+                                document.getElementById('Client').innerHTML = "Client: "; // + j.Client;
+                                document.getElementById('ProjectManager').innerHTML = ""; //j.ProjectManager;
 
-                                document.getElementById('Client').innerHTML = "Client: " + j.Client;
-                                document.getElementById('ProjectManager').innerHTML = j.ProjectManager;
+                                document.getElementById('Owner').innerHTML = "Owner: ";// + j.Owner;
+                                document.getElementById('OwnerManager').innerHTML = ""; //j.OwnerManager;
 
-                                document.getElementById('Owner').innerHTML = "Owner: " + j.Owner;
-                                document.getElementById('OwnerManager').innerHTML = j.OwnerManager;
+                                document.getElementById('TotalAR').innerHTML = "AR: " + formatCurrency(j.ARTotal);
+                                document.getElementById('ARPlus60').innerHTML = "AR > 60: " + formatCurrency(j.AROverAmount);
 
-                                document.getElementById('TotalAR').innerHTML = "AR: " + formatCurrency(j.TotalAR);
-                                document.getElementById('ARPlus60').innerHTML = "AR > 60: " + formatCurrency(j.ARPlus60);
-
-                                document.getElementById('DraftAmount').innerHTML = "Draft Invoice Amount: " + formatCurrency(j.DraftAmount);
-                                document.getElementById('InvoiceStatus').innerHTML = "Invoice Status: " + j.InvoiceStatus;
+                                //document.getElementById('DraftAmount').innerHTML = "Draft Invoice Amount: " + formatCurrency(j.DraftAmount);
+                                //document.getElementById('InvoiceStatus').innerHTML = "Invoice Status: " + j.InvoiceStatus;
 
                                 document.getElementById('Status').innerHTML = "Project Status: " + j.Status;
                                 //document.getElementById('ITR').innerHTML = "ITR: " + j.ITR;
                                 document.getElementById('LeadEngineer').innerHTML = "Lead Engineer: " + j.LeadEngineer;
-                                document.getElementById('StartDate').innerHTML = "Start Date: " + j.StartDate;
-                                document.getElementById('ActCompDate').innerHTML = "Actual Completion Date: " + j.ActCompDate;
-                                document.getElementById('EstCompDate').innerHTML = "Est Completion Date: " + j.EstCompDate;
+
+                                document.getElementById('unbilled_total').innerHTML = "Unbilled Total: " + formatCurrency(j.UnbilledTotal);
+                                document.getElementById('unbilled_aged').innerHTML = "Unbilled Aged: " + foramtCurrency(j.UnbilledAged);                                
 
 
                             } catch (err) {
