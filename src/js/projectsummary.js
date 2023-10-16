@@ -30,11 +30,9 @@ var formatDate = function(val) {
 
     var rtnVal = '';
 
-    if (val)
-        console.log(val);
-
-    if (val && val.length > 0){
-        rtnValue = new Date(val.toString()).toLocaleDateString();
+    if (val){
+        rtnValue = new Date(val.toString()).toLocaleDateString();        
+        console.log(rtnVal);
     }
 
     return rtnVal;
@@ -63,8 +61,6 @@ var formatPercent = function (val, useNegativeSign) {
             rtnVal = "(" + rtnVal + ")";
         }
     }
-
-    console.log('percentage...' + rtnVal);
 
     return rtnVal;
 
@@ -172,9 +168,9 @@ t.render(function () {
                                 document.getElementById('effort_gmpct').innerHTML = formatPercent(j.EffortGM, false);
                                 //document.getElementById('GMPctVar').innerHTML = formatPercent(j.GMPctVar, false);
 
-                                document.getElementById('baseline_gmpct').innerHTML = formatDecimal(j.BaselineGM);
-                                document.getElementById('jtd_gmpct').innerHTML = formatDecimal(j.JTDGM);
-                                document.getElementById('effort_gmpct').innerHTML = formatDecimal(j.EffortGM);                                
+                                document.getElementById('baseline_mult').innerHTML = "";//formatDecimal(j.BaselineGM);
+                                document.getElementById('jtd_mult').innerHTML = "";//formatPercent(j.JTDGM);
+                                document.getElementById('effort_mult').innerHTML = "";//formatDecimal(j.EffortGM);                                
 
                                 document.getElementById('Client').innerHTML = "Client: "; // + j.Client;
                                 document.getElementById('ProjectManager').innerHTML = ""; //j.ProjectManager;
