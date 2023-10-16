@@ -29,7 +29,7 @@ var formatCurrency = function (val) {
 var formatDate = function(val) {
 
     var rtnVal = '';
-
+    console.log(value);
     if (val && val.length > 0){
         rtnValue = new Date(val).toLocaleDateString();
     }
@@ -41,13 +41,15 @@ var formatPercent = function (val, useNegativeSign) {
 
     var rtnVal = '';
 
-    var pureVal = val / 100.0000;
+    var pureVal = val; // / 100.0000;
     if (pureVal < 0) {
         pureVal = Math.abs(pureVal);
     }
 
     rtnVal = pureVal.toLocaleString('en-US', {
         style: 'percent',
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0,        
         currency: 'USD',
     });
 
