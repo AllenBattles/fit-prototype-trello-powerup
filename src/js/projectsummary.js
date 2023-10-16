@@ -29,7 +29,7 @@ var formatCurrency = function (val) {
 var formatDate = function(val) {
 
     var rtnVal = '';
-    
+
     if (val)
         console.log(val);
 
@@ -191,7 +191,7 @@ t.render(function () {
                                 document.getElementById('LeadEngineer').innerHTML = "Lead Engineer: " + j.LeadEngineer;
 
                                 document.getElementById('unbilled_total').innerHTML = "Unbilled Total: " + formatCurrency(j.UnbilledTotal);
-                                document.getElementById('unbilled_aged').innerHTML = "Unbilled Aged: " + foramtCurrency(j.UnbilledAged);                                
+                                document.getElementById('unbilled_aged').innerHTML = "Unbilled Aged: " + formatCurrency(j.UnbilledAged);                                
 
 
                             } catch (err) {
