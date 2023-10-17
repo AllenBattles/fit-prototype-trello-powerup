@@ -161,8 +161,8 @@ t.render(function () {
                                 document.getElementById('jtd_net').innerHTML = formatCurrency(j.JTDNet);
                                 document.getElementById('effort_remaining').innerHTML = formatCurrency(j.EffortUnassigned);
 
-                                document.getElementById('baseline_gm').innerHTML = ''; //formatCurrency(j.BaselineGross);
-                                document.getElementById('jtd_gm').innerHTML = ''; //formatCurrency(j.EAC_GM);
+                                document.getElementById('baseline_gm').innerHTML = formatDecimal(j.BaselineMargin);
+                                document.getElementById('jtd_gm').innerHTML = formatDecimal(j.JTDMargin);
                                 document.getElementById('effort_excess').innerHTML = formatDecimalNoPoints(j.EffortExcess);                                
 
                                 document.getElementById('baseline_gmpct').innerHTML = formatPercent(j.BaselineGM, false);
@@ -170,14 +170,14 @@ t.render(function () {
                                 document.getElementById('effort_gmpct').innerHTML = formatPercent(j.EffortGM, false);
                                 //document.getElementById('GMPctVar').innerHTML = formatPercent(j.GMPctVar, false);
 
-                                document.getElementById('baseline_mult').innerHTML = "";//formatDecimal(j.BaselineGM);
-                                document.getElementById('jtd_mult').innerHTML = "";//formatPercent(j.JTDGM);
-                                document.getElementById('effort_mult').innerHTML = "";//formatDecimal(j.EffortGM);                                
+                                document.getElementById('baseline_mult').innerHTML = formatDecimal(j.BaselineGM);
+                                document.getElementById('jtd_mult').innerHTML = formatDecimal(j.BaselineGM);
+                                //document.getElementById('effort_mult').innerHTML = formatDecimal(j.BaselineGM);                               
 
                                 document.getElementById('Client').innerHTML = "Client: "; // + j.Client;
                                 document.getElementById('ProjectManager').innerHTML = ""; //j.ProjectManager;
 
-                                document.getElementById('Owner').innerHTML = "Owner: ";// + j.Owner;
+                                document.getElementById('Owner').innerHTML = "Owner: " + j.OwnerName;
                                 document.getElementById('OwnerManager').innerHTML = ""; //j.OwnerManager;
 
                                 document.getElementById('TotalAR').innerHTML = "AR: " + formatCurrency(j.ARTotal);
