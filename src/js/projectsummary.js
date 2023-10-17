@@ -170,12 +170,12 @@ t.render(function () {
                                 document.getElementById('effort_gmpct').innerHTML = formatPercent(j.EffortGM, false);
                                 //document.getElementById('GMPctVar').innerHTML = formatPercent(j.GMPctVar, false);
 
-                                document.getElementById('baseline_mult').innerHTML = formatDecimal(j.BaselineGM);
-                                document.getElementById('jtd_mult').innerHTML = formatDecimal(j.BaselineGM);
+                                document.getElementById('baseline_mult').innerHTML = formatDecimal(j.BaselineMultiplier);
+                                document.getElementById('jtd_mult').innerHTML = formatDecimal(j.JTDMultiplier);
                                 //document.getElementById('effort_mult').innerHTML = formatDecimal(j.BaselineGM);                               
 
-                                document.getElementById('Client').innerHTML = "Client: "; // + j.Client;
-                                document.getElementById('ProjectManager').innerHTML = ""; //j.ProjectManager;
+                                document.getElementById('Client').innerHTML = "Client: " + j.ClientName;
+                                document.getElementById('ProjectManager').innerHTML = j.ProjectManager;
 
                                 document.getElementById('Owner').innerHTML = "Owner: " + j.OwnerName;
                                 document.getElementById('OwnerManager').innerHTML = ""; //j.OwnerManager;
