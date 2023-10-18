@@ -159,7 +159,7 @@ t.render(function () {
                                 
                                 document.getElementById('baseline_net').innerHTML = formatCurrency(j.BaselineNet);
                                 document.getElementById('jtd_net').innerHTML = formatCurrency(j.JTDNet);
-                                document.getElementById('effort_remaining').innerHTML = formatCurrency(j.EffortUnassigned);
+                                document.getElementById('effort_remaining').innerHTML = formatDecimalNoPoints(j.EffortUnassigned);
 
                                 document.getElementById('baseline_gm').innerHTML = formatDecimal(j.BaselineMargin);
                                 document.getElementById('jtd_gm').innerHTML = formatDecimal(j.JTDMargin);
