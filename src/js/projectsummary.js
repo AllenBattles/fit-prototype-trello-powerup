@@ -88,13 +88,13 @@ t.render(function () {
     // recall this method as the user adds and removes attachments
     // from your section
 
-    var customFieldID = 'NA';
+    var customFieldID = '5e4d542609fff070d79cfac3';
     var boardName = '';
     var isTestBoard = false;
 
     t.get('board', 'shared')
         .then(function (board) {
-            //console.log(JSON.stringify(board, null, 2));
+            console.log(JSON.stringify(board, null, 2));
 
             if (board && board.projectsummary) {
                 customFieldID = board.projectsummary;
@@ -120,6 +120,16 @@ t.render(function () {
                 if (desc && desc.length > 0)
                     id = desc;
 
+
+                //console.log("boardName = " + boardName);
+
+                let apiUrl = `${API_BASE}?id=${id}`;
+                if (boardName && boardName.toLowerCase().indexOf('test') >= 0) {
+                    isTestBoard = true;
+                    customFieldID = '5e3c29b01d0b6b0e7371e4e3';
+                    apiUrl = 'https://glp2.csrsinc.com/api/dashboard/modernprojectsummary?id=' + id;
+                }
+
                 //get project number from custom field
                 if (card.customFieldItems && card.customFieldItems.length > 0) {
                     for (var i = 0; i < card.customFieldItems.length; i++) {
@@ -130,15 +140,7 @@ t.render(function () {
                             }
                         }
                     }
-                }
-
-                //console.log("boardName = " + boardName);
-
-                let apiUrl = `${API_BASE}?id=${id}`;
-                if (boardName && boardName.toLowerCase().indexOf('test') >= 0) {
-                    isTestBoard = true;
-                    apiUrl = 'https://glp2.csrsinc.com/api/dashboard/modernprojectsummary?id=' + id;
-                }
+                }                
 
                 //console.log("apiUrl = " + apiUrl);
 
